@@ -36,16 +36,16 @@ public class ElbonianArabicConverter {
 
         // TODO check to see if the number is valid, then set it equal to the string
         number.trim();
-        //Check if number contains a space
-        if(number.contains(" ")) {
-            throw new MalformedNumberException("Number contains a space!");
-        }
+//        //Check if number contains a space
+//        if(number.contains(" ")) {
+//            throw new MalformedNumberException("Number contains a space!");
+//        }
 
         try {
             int a = Integer.parseInt(number);
             checkInRange(number);
         } catch(NumberFormatException e) {
-            //Not arabic number, check if it is Elbonian
+            // Not arabic number, check if it is Elbonian
             checkValidCharacters(number);
             checkDuplicates(number);
             checkOrder(number);
@@ -57,7 +57,7 @@ public class ElbonianArabicConverter {
 
     private void checkInRange(String number) throws ValueOutOfBoundsException {
         int n = Integer.parseInt(number);
-        if(n > 0 && n < 2999) {}
+        if(n > 0 && n <= 2999) {}
         else {
             throw new ValueOutOfBoundsException("Number must be between 0 and 2999");
         }
