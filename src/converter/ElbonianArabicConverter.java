@@ -35,11 +35,7 @@ public class ElbonianArabicConverter {
     public ElbonianArabicConverter(String number) throws MalformedNumberException, ValueOutOfBoundsException {
 
         // TODO check to see if the number is valid, then set it equal to the string
-        number.trim();
-//        //Check if number contains a space
-//        if(number.contains(" ")) {
-//            throw new MalformedNumberException("Number contains a space!");
-//        }
+        number = number.trim();
 
         try {
             int a = Integer.parseInt(number);
@@ -134,7 +130,7 @@ public class ElbonianArabicConverter {
             throw new MalformedNumberException("X cannot appear if Y and Z are in the number");
         }
 
-        if(j == 1 && k == 1 && i != 1) {
+        if(j == 1 && k == 1 && i != 0) {
             throw new MalformedNumberException("I cannot appear if J and K are in the number");
         }
     }
@@ -227,9 +223,7 @@ public class ElbonianArabicConverter {
         // TODO Fill in the method's body
         int result = 0;
         try {
-            int a = Integer.parseInt(number);
-            checkInRange(number);
-            return a;
+          return Integer.parseInt(number);
         } catch(NumberFormatException e) {
             for(int a = 0; a < number.length(); a++) {
                 char ch = number.charAt(a);
@@ -265,10 +259,7 @@ public class ElbonianArabicConverter {
                         result += 6;
                 }
             }
-        } catch (ValueOutOfBoundsException e) {
-            //This shouldn't happen
         }
-
         return result;
     }
 
@@ -339,7 +330,6 @@ public class ElbonianArabicConverter {
                 }
             }
         }
-
 
         return result;
     }
